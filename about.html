@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  background-image: url('/static/test1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  margin-top:50px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 22px;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.topnav a:hover {
+  background-color: lightgrey;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: green;
+  color: white;
+}
+
+.topnav .login-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width:120px;
+}
+
+.topnav .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color:grey ;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .
+
+.topnav .login-container button:hover {
+  background-color: lightgrey;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text],.topnav .login-container button {
+    float: none;
+    display: block;
+	text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+  .error {
+    color: red;
+    font-size: 90%;
+}
+
+.topnav-right {
+  float: right;
+}
+ 
+</style>
+</head>
+
+<body bgcolor="cyan">
+
+<div class="topnav">
+  <a href="{{ url_for('infer') }}">Home</a>
+  <a class="active" href="{{ url_for('about') }}">About</a>
+  <a href="{{ url_for('what') }}">What to do</a>
+  <a href="{{ url_for('contact') }}">Contact Us</a>
+  <div class="topnav-right">
+    <a href="{{ url_for('admin') }}">Admin login</a>
+  </div>
+  <div class="login-container">
+    
+  </div>
+</div>
+
+<div style="padding-left:16px">
+ <center>
+  <h1><font color="white">Corona Virus Predictor </font></h1></center>
+  <br>
+  <font size='5' color='red'><u><b>ABOUT CORONAVIRUS:</b></u></font><br><br>
+  <font size='3' color='white'>
+    {{main}}
+  </font>
+  <center>
+    <h2><font color="orange"> Overview of Present Condition of the World</font></h2>
+  <table border="1" style="color: white;">
+    
+    <th>Continent</th>
+    <th color="white">Total Case</th>
+    <th color="white">New Case</th>
+    <th bgcolor="red">Total Death</th>
+    <th color="white">New Death</th>
+    <th bgcolor="green">Total Recovered</th>
+    <th color="white">Active Cases</th>
+    <th color="white">Serious,Critical</th>
+    <th color="white">Total Cases/1M population</th>
+    
+    
+    {% for row in rows %}
+    <tr>
+     <td align="center">{{row[0]}}</td>
+     <td align="center">{{row[1]}}</td>
+     <td align="center">{{row[2]}}</td>
+     <td align="center" bgcolor="red">{{row[3]}}</td>
+     <td align="center">{{row[4]}}</td>
+     <td align="center" bgcolor="green">{{row[5]}}</td>
+     <td align="center">{{row[6]}}</td>
+     <td align="center">{{row[7]}}</td>
+     <td align="center">{{row[8]}}</td>
+    </tr>
+  {% endfor %}
+</font>
+  </table>
+</center>
+</div>
+</body>
+</html>

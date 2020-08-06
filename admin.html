@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  background-image: url('/static/test1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  margin-top:50px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 22px;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.topnav a:hover {
+  background-color: lightgrey;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: green;
+  color: white;
+}
+
+.topnav .login-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width:120px;
+}
+
+.topnav .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color:grey ;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .
+
+.topnav .login-container button:hover {
+  background-color: lightgrey;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text],.topnav .login-container button {
+    float: none;
+    display: block;
+	text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+  .error {
+    color: red;
+    font-size: 90%;
+}
+
+.topnav-right {
+  float: right;
+}
+ 
+</style>
+<body bgcolor="cyan">
+	<div class="topnav">
+  <a href="{{ url_for('infer') }}">Home</a>
+  <a href="{{ url_for('about') }}">About</a>
+  <a href="{{ url_for('what') }}">What to do</a>
+  <a href="{{ url_for('contact') }}">Contact Us</a>
+  <div class="topnav-right">
+    <a class="active" href="{{ url_for('admin') }}">Admin login</a>
+  </div>
+  <div class="login-container">
+    
+  </div>
+</div>
+<center>
+<h1><u>ADMIN LOGIN</u></h1>
+<form name="adminForm" action="/login" method="POST">
+<table>
+	<th colspan="2"> <h2>ADMIN LOG IN PORTAL</h2></th>
+	<tr>
+		<td>
+			USER NAME:
+		</td>
+		<td><input type="text" name="name" placeholder="name" required></td>
+	</tr>
+	<tr>
+		<td>
+			PASSWORD:
+		</td>
+		<td>
+			<input type="text" name="pass" placeholder="password" min="8" max="15" required>
+		</td>
+	</tr>
+	<tr>
+      <td colspan="2"><center><input type="submit" value="Submit" name="B4"></center></td>
+    </tr>
+	</table>
+
+	{% with message=get_flashed_messages() %}
+		{% if message %}
+			{% for msg in message %}
+				<h2><font color='red'>{{msg}}</font></h2>
+			{% endfor %}	
+		{% endif %}
+	{% endwith %}
+</center>
+</body>
+</html>

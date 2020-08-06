@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  background-image: url('security.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  margin-top:50px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 22px;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.topnav a:hover {
+  background-color: lightgrey;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: green;
+  color: white;
+}
+
+.topnav .login-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width:120px;
+}
+
+.topnav .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color:grey ;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .
+
+.topnav .login-container button:hover {
+  background-color: lightgrey;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text],.topnav .login-container button {
+    float: none;
+    display: block;
+	text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+  .error {
+    color: red;
+    font-size: 90%;
+}
+
+.topnav-right {
+  float: right;
+}
+ 
+</style>
+
+
+<body bgcolor="cyan">
+
+  
+<div class="topnav">
+  <a href="{{ url_for('login') }}">HOME</a>
+  <a class="active" href="{{ url_for('show') }}">SHOW</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <div class="login-container">
+    
+  </div>
+</div>
+
+<div style="padding-left:16px">
+ <center>
+  <h1>Corona Virus Predictor </h1>
+  <table border="1">
+    <th>ID</th>
+    <th>NAME</th>
+    <th>EMAIL</th>
+    <th>Phone Number</th>
+    <th>Percentage</th>
+    <th>DELETE</th>
+
+    {% for row in rows %}
+    <tr>
+      <td>{{row.pid}}</td>
+      <td>{{row.name}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.phone}}</td>
+      <td>{{row.percent}}</td>
+      <td><a href="/delete/{{row.pid}}"><button class="btn btn-primary">DELETE</td>
+    </tr>
+    {% endfor %}
+
+  </table>

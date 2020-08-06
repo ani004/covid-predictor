@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  background-image: url('/static/test1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  margin-top:50px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 22px;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.topnav a:hover {
+  background-color: lightgrey;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: green;
+  color: white;
+}
+
+.topnav .login-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width:120px;
+}
+
+.topnav .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color:grey ;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .
+
+.topnav .login-container button:hover {
+  background-color: lightgrey;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text],.topnav .login-container button {
+    float: none;
+    display: block;
+	text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+  .error {
+    color: red;
+    font-size: 90%;
+}
+
+.topnav-right {
+  float: right;
+}
+ 
+</style>
+</head>
+
+<body bgcolor="cyan">
+
+  
+<div class="topnav">
+  <a href="{{ url_for('infer') }}">Home</a>
+  <a href="{{ url_for('about') }}">About</a>
+  <a class="active" href="{{ url_for('what') }}">What to do</a>
+  <a href="{{ url_for('contact') }}">Contact Us</a>
+  <div class="topnav-right">
+    <a href="{{ url_for('admin') }}">Admin login</a>
+  </div>
+  
+</div>
+<center>
+  <h1>Corona Virus Predictor </h1>
+  <br>
+  <h2><u>Protect yourself and others from the spread COVID-19</u></h2></center><br>
+  <ul>
+    <li>Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water. Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</li><br>
+    <li>Maintain at least 1 metre (3 feet) distance between yourself and others. Why? When someone coughs, sneezes, or speaks they spray small liquid droplets from their nose or mouth which may contain virus. If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person has the disease.</li><br>
+    <li>Stay home and self-isolate even with minor symptoms such as cough, headache, mild fever, until you recover. Have someone bring you supplies. If you need to leave your house, wear a mask to avoid infecting others. Why? Avoiding contact with others will protect them from possible COVID-19 and other viruses.</li><br>
+    <li>Avoid touching eyes, nose and mouth. Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth. From there, the virus can enter your body and infect you.</li><br>
+  </ul>
+</body>
+</html>
